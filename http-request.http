@@ -1,0 +1,9 @@
+POST http://127.0.0.1:6001/api/user/login
+Accept: application/json
+
+{
+    "mobile":"18627111095",
+    "password":"123123"
+}
+
+###
