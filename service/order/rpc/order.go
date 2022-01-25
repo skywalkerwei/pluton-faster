@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-
 	"github.com/skywalkerwei/pluton-faster/service/order/rpc/internal/config"
 	"github.com/skywalkerwei/pluton-faster/service/order/rpc/internal/server"
 	"github.com/skywalkerwei/pluton-faster/service/order/rpc/internal/svc"
