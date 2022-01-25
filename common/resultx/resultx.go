@@ -1,6 +1,6 @@
-package errorx
+package resultx
 
-const defaultCode = 400
+const defaultCode = 0
 
 type CodeError struct {
 	Code    int         `json:"code"`
@@ -14,12 +14,12 @@ type CodeErrorResponse struct {
 	Data    interface{} `json:"data"`
 }
 
-func NewCodeError(code int, message string, data interface{}) error {
+func NewCode(code int, message string, data interface{}) error {
 	return &CodeError{Code: code, Message: message, Data: data}
 }
 
-func NewDefaultError(message string, data interface{}) error {
-	return NewCodeError(defaultCode, message, data)
+func NewDefault(message string, data interface{}) error {
+	return NewCode(defaultCode, message, data)
 }
 
 func (e *CodeError) Error() string {

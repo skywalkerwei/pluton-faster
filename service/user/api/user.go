@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/skywalkerwei/pluton-faster/common/errorx"
+	"github.com/skywalkerwei/pluton-faster/common/resultx"
 	"github.com/tal-tech/go-zero/rest/httpx"
 	"net/http"
 
@@ -32,7 +32,7 @@ func main() {
 	// 自定义错误
 	httpx.SetErrorHandler(func(err error) (int, interface{}) {
 		switch e := err.(type) {
-		case *errorx.CodeError:
+		case *resultx.CodeError:
 			return http.StatusOK, e.DataInfo()
 		default:
 			return http.StatusInternalServerError, nil

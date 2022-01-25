@@ -2,7 +2,8 @@ package handler
 
 import (
 	"fmt"
-	"github.com/skywalkerwei/pluton-faster/common/errorx"
+	"github.com/skywalkerwei/pluton-faster/common/resultx"
+	"google.golang.org/grpc/status"
 	"net/http"
 
 	"github.com/skywalkerwei/pluton-faster/service/product/api/internal/logic"
@@ -16,17 +17,17 @@ func DetailHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		var req types.DetailRequest
 		if err := httpx.Parse(r, &req); err != nil {
 			//httpx.Error(w, err)
-			httpx.Error(w, errorx.NewDefaultError(fmt.Sprintf("%v", err), ""))
+			httpx.Error(w, resultx.NewDefault(fmt.Sprintf("%v", err), ""))
 			return
 		}
 
 		l := logic.NewDetailLogic(r.Context(), svcCtx)
 		resp, err := l.Detail(req)
 		if err != nil {
-			//httpx.Error(w, err)
-			httpx.Error(w, errorx.NewDefaultError(fmt.Sprintf("%v", err), ""))
+			r := status.Convert(err)
+			httpx.Error(w, resultx.NewDefault(r.Message(), ""))
 		} else {
-			httpx.OkJson(w, resp)
+			httpx.OkJson(w, resultx.NewCode(200, "success", resp))
 		}
 	}
 }

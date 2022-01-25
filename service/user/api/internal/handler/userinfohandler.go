@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"fmt"
-	"github.com/skywalkerwei/pluton-faster/common/errorx"
+	"github.com/skywalkerwei/pluton-faster/common/resultx"
+	"google.golang.org/grpc/status"
 	"net/http"
 
 	"github.com/skywalkerwei/pluton-faster/service/user/api/internal/logic"
@@ -15,14 +15,10 @@ func UserInfoHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		l := logic.NewUserInfoLogic(r.Context(), svcCtx)
 		resp, err := l.UserInfo()
 		if err != nil {
-			httpx.Error(w, errorx.NewDefaultError(fmt.Sprintf("%v", err), ""))
+			r := status.Convert(err)
+			httpx.Error(w, resultx.NewDefault(r.Message(), ""))
 		} else {
-			httpx.OkJson(w, resp)
+			httpx.OkJson(w, resultx.NewCode(200, "success", resp))
 		}
-		//if err != nil {
-		//	httpx.Error(w, err)
-		//} else {
-		//	httpx.OkJson(w, resp)
-		//}
 	}
 }

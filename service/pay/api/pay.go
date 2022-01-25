@@ -3,6 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/skywalkerwei/pluton-faster/common/resultx"
+	"github.com/tal-tech/go-zero/rest/httpx"
+	"net/http"
 
 	"github.com/skywalkerwei/pluton-faster/service/pay/api/internal/config"
 	"github.com/skywalkerwei/pluton-faster/service/pay/api/internal/handler"
@@ -25,6 +28,16 @@ func main() {
 	defer server.Stop()
 
 	handler.RegisterHandlers(server, ctx)
+
+	// 自定义错误
+	httpx.SetErrorHandler(func(err error) (int, interface{}) {
+		switch e := err.(type) {
+		case *resultx.CodeError:
+			return http.StatusOK, e.DataInfo()
+		default:
+			return http.StatusInternalServerError, nil
+		}
+	})
 
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)
 	server.Start()
