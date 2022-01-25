@@ -32,6 +32,7 @@ func (l *RegisterLogic) Register(req types.RegisterRequest) (resp *types.Registe
 		Password: req.Password,
 	})
 	if err != nil {
+
 		return nil, err
 	}
 

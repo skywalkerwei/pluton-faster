@@ -1,9 +1,28 @@
-POST http://127.0.0.1:6001/api/user/login
-Accept: application/json
+### 获取用户信息
+POST http://127.0.0.1:6001/api/user/userinfo
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDMxNjk5NTYsImlhdCI6MTY0MzA4MzU1NiwidWlkIjoxfQ.8MNkNRvK7nfimcUuArRcpClYjB3XUAsnoB8Gs0Nf7Rc
+
+
+### 注册
+POST http://127.0.0.1:6001/api/user/register
+Content-Type: application/json
 
 {
-    "mobile":"18627111095",
-    "password":"123123"
+  "name":"test",
+  "gender":1,
+  "mobile":"18627111095",
+  "password": "123123"
 }
 
-###
+### 登录
+POST http://127.0.0.1:6001/api/user/login
+Content-Type: application/json
+
+{
+  "mobile":"18627111095",
+  "password": "123123"
+}
+
+
+

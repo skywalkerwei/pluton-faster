@@ -23,6 +23,14 @@ func RegisterHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		l := logic.NewRegisterLogic(r.Context(), svcCtx)
 		resp, err := l.Register(req)
 		if err != nil {
+			//returnCode := 500
+			//switch e := err.(type) {
+			//case *errorx.CodeError:
+			//	returnCode = e.DataInfo().Code
+			//default:
+			//	returnCode = 500
+			//}
+			//httpx.Error(w, errorx.NewCodeError(returnCode, fmt.Sprintf("%v", err), ""))
 			httpx.Error(w, errorx.NewDefaultError(fmt.Sprintf("%v", err), ""))
 		} else {
 			httpx.OkJson(w, resp)
