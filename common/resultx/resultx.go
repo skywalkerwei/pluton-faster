@@ -1,6 +1,6 @@
 package resultx
 
-const defaultCode = 0
+const defaultCode = 400
 
 type CodeError struct {
 	Code    int         `json:"code"`
@@ -20,6 +20,14 @@ func NewCode(code int, message string, data interface{}) error {
 
 func NewDefault(message string, data interface{}) error {
 	return NewCode(defaultCode, message, data)
+}
+
+func Error(code int, message string, data interface{}) error {
+	return NewCode(code, message, data)
+}
+
+func Success(data interface{}) error {
+	return NewCode(200, "ok", data)
 }
 
 func (e *CodeError) Error() string {

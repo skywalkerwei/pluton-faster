@@ -1,0 +1,23 @@
+info(
+	title: "其他-api"
+	desc: "其他-api"
+	author: "kyle"
+	email: "skywalkerwei@gmail.com"
+)
+
+type (
+	WxPayCallBackReq {
+	}
+	WxPayCallBackResp {
+		ReturnCode string `json:"return_code"`
+	}
+)
+
+service WxApp {
+	@doc(
+		summary: "支付回调"
+	)
+	@handler WxPayCallBack
+	post /api/wxPayCallBack(WxPayCallBackReq) returns (WxPayCallBackResp)
+
+}

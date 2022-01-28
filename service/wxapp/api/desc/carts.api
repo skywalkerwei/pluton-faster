@@ -1,0 +1,72 @@
+info(
+	title: "购物车-api"
+	desc: "购物车-api"
+	author: "kyle"
+	email: "skywalkerwei@gmail.com"
+)
+
+type (
+	CartsItem {
+		Id   		int `json:"id"`
+		GoodsID   	int `json:"goodsId"`
+		GoodsName   string `json:"goodsName"`
+		Num 		int `json:"num"`
+	}
+
+	CartsListResponse {
+		List  []CartsItem `json:"list"`
+	}
+
+	CartsAddRequest {
+		GoodsID   	int `json:"goodsId"`
+		Num 		int `json:"num"`
+	}
+
+	CartsAddResponse {
+		id 		string `json:"id"`
+	}
+
+	CartsEditRequest {
+		Id   	int `json:"id"`
+		Type 	int `json:"type"`
+	}
+	CartsEditResponse {
+	}
+
+	CartsDelRequest {
+		Idx   	int `json:"idx"`
+	}
+	CartsDelResponse {
+	}
+)
+
+@server(
+	jwt: Auth
+)
+service WxApp {
+	@doc(
+		summary: "购物车-列表"
+	)
+	@handler CartsList
+	get /api/carts/list returns (CartsListResponse)
+
+	@doc(
+		summary: "购物车-添加"
+	)
+	@handler CartsAdd
+	post /api/carts/add(CartsAddRequest) returns (CartsAddResponse)
+
+	@doc(
+		summary: "购物车-修改"
+	)
+	@handler CartsEdit
+	post /api/carts/edit(CartsEditRequest) returns (CartsEditResponse)
+
+
+	@doc(
+		summary: "购物车-删除"
+	)
+	@handler CartsDel
+	post /api/carts/del(CartsDelRequest) returns (CartsDelResponse)
+
+}
