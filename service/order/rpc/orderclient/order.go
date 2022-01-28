@@ -33,6 +33,7 @@ type (
 		Detail(ctx context.Context, in *DetailRequest, opts ...grpc.CallOption) (*DetailResponse, error)
 		List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
 		Paid(ctx context.Context, in *PaidRequest, opts ...grpc.CallOption) (*PaidResponse, error)
+		CreateRevert(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	}
 
 	defaultOrder struct {
@@ -74,4 +75,9 @@ func (m *defaultOrder) List(ctx context.Context, in *ListRequest, opts ...grpc.C
 func (m *defaultOrder) Paid(ctx context.Context, in *PaidRequest, opts ...grpc.CallOption) (*PaidResponse, error) {
 	client := order.NewOrderClient(m.cli.Conn())
 	return client.Paid(ctx, in, opts...)
+}
+
+func (m *defaultOrder) CreateRevert(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+	client := order.NewOrderClient(m.cli.Conn())
+	return client.CreateRevert(ctx, in, opts...)
 }

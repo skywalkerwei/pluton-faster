@@ -1,3 +1,10 @@
+info(
+	title: "user api"
+	desc: "user api"
+	author: "kyle"
+	email: "skywalkerwei@gmail.com"
+)
+
 type (
 	// 用户登录
 	LoginRequest {
@@ -36,9 +43,15 @@ type (
 )
 
 service User {
+	@doc(
+		summary: "登录"
+	)
 	@handler Login
 	post /api/user/login(LoginRequest) returns (LoginResponse)
-	
+
+	@doc(
+		summary: "注册"
+	)
 	@handler Register
 	post /api/user/register(RegisterRequest) returns (RegisterResponse)
 }
@@ -47,6 +60,9 @@ service User {
 	jwt: Auth
 )
 service User {
+	@doc(
+		summary: "获取用户信息"
+	)
 	@handler UserInfo
 	post /api/user/userinfo returns (UserInfoResponse)
 }

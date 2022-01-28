@@ -23,10 +23,9 @@ func CallbackHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		l := logic.NewCallbackLogic(r.Context(), svcCtx)
 		resp, err := l.Callback(req)
 		if err != nil {
-			r := status.Convert(err)
-			httpx.Error(w, resultx.NewDefault(r.Message(), ""))
+			httpx.Error(w, resultx.NewDefault(status.Convert(err).Message(), ""))
 		} else {
-			httpx.OkJson(w, resultx.NewCode(200, "success", resp))
+			httpx.OkJson(w, resultx.NewCode(200, "ok", resp))
 		}
 	}
 }

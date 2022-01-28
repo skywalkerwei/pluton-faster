@@ -1,7 +1,7 @@
 ### 获取用户信息
 POST http://127.0.0.1:6001/api/user/userinfo
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDMxNjk5NTYsImlhdCI6MTY0MzA4MzU1NiwidWlkIjoxfQ.8MNkNRvK7nfimcUuArRcpClYjB3XUAsnoB8Gs0Nf7Rc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDMyMDM3OTAsImlhdCI6MTY0MzExNzM5MCwidWlkIjoxfQ.S50X7vRL3aM8HgAP_1nKcg3GDoViT3792mTPYB2IpT8
 
 
 ### 注册
@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
   "mobile":"18627111195",
-  "password": "1"
+  "password": "123123"
 }
 
 
