@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package cartclient;
+
+option go_package = "cart";
+
+message CartItem{
+    int64 Id = 1;
+    int64 Uid = 2;
+    int64 Gid = 3;
+    string Name = 4;
+    int64 Num = 5;
+}
+message ListReq {
+    int64 Uid = 1;
+}
+message ListResp {
+  repeated CartItem List = 1;
+}
+
+message AddReq {
+    int64 GoodsId = 1;
+    int64 Num = 2;
+}
+message AddResp {
+    int64 id = 1;
+}
+
+message EditReq {
+    int64 Id = 1;
+    int64 Type = 2;
+}
+message EditResp {
+}
+
+message DelReq {
+    string idx = 1;
+}
+message DelResp {
+}
+
+service Cart {
+    rpc List(ListReq) returns(ListResp);
+    rpc Add(AddReq) returns(AddResp);
+    rpc Edit(EditReq) returns(EditResp);
+    rpc Del(DelReq) returns(DelResp);
+}

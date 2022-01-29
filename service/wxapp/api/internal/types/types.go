@@ -33,10 +33,10 @@ type UserInfoResponse struct {
 }
 
 type CartsItem struct {
-	Id        int    `json:"id"`
-	GoodsID   int    `json:"goodsId"`
+	Id        int64  `json:"id"`
+	GoodsID   int64  `json:"goodsId"`
 	GoodsName string `json:"goodsName"`
-	Num       int    `json:"num"`
+	Num       int64  `json:"num"`
 }
 
 type CartsListResponse struct {
@@ -44,8 +44,8 @@ type CartsListResponse struct {
 }
 
 type CartsAddRequest struct {
-	GoodsID int `json:"goodsId"`
-	Num     int `json:"num"`
+	GoodsID int64 `json:"goodsId"`
+	Num     int64 `json:"num"`
 }
 
 type CartsAddResponse struct {
@@ -53,15 +53,15 @@ type CartsAddResponse struct {
 }
 
 type CartsEditRequest struct {
-	Id   int `json:"id"`
-	Type int `json:"type"`
+	Id   int64 `json:"id"`
+	Type int64 `json:"type"`
 }
 
 type CartsEditResponse struct {
 }
 
 type CartsDelRequest struct {
-	Idx int `json:"idx"`
+	Idx int64 `json:"idx"`
 }
 
 type CartsDelResponse struct {

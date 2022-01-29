@@ -7,10 +7,10 @@ info(
 
 type (
 	CartsItem {
-		Id   		int `json:"id"`
-		GoodsID   	int `json:"goodsId"`
+		Id   		int64 `json:"id"`
+		GoodsID   	int64 `json:"goodsId"`
 		GoodsName   string `json:"goodsName"`
-		Num 		int `json:"num"`
+		Num 		int64 `json:"num"`
 	}
 
 	CartsListResponse {
@@ -18,8 +18,8 @@ type (
 	}
 
 	CartsAddRequest {
-		GoodsID   	int `json:"goodsId"`
-		Num 		int `json:"num"`
+		GoodsID   	int64 `json:"goodsId"`
+		Num 		int64 `json:"num"`
 	}
 
 	CartsAddResponse {
@@ -27,14 +27,14 @@ type (
 	}
 
 	CartsEditRequest {
-		Id   	int `json:"id"`
-		Type 	int `json:"type"`
+		Id   	int64 `json:"id"`
+		Type 	int64 `json:"type"`
 	}
 	CartsEditResponse {
 	}
 
 	CartsDelRequest {
-		Idx   	int `json:"idx"`
+		Idx   	int64 `json:"idx"`
 	}
 	CartsDelResponse {
 	}

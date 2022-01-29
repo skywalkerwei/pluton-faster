@@ -1,6 +1,8 @@
 package handler
 
 import (
+	"github.com/skywalkerwei/pluton-faster/common/resultx"
+	"google.golang.org/grpc/status"
 	"net/http"
 
 	"github.com/skywalkerwei/pluton-faster/service/wxapp/api/internal/logic"
@@ -13,9 +15,10 @@ func CartsListHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		l := logic.NewCartsListLogic(r.Context(), svcCtx)
 		resp, err := l.CartsList()
 		if err != nil {
-			httpx.Error(w, err)
+			r := status.Convert(err)
+			httpx.Error(w, resultx.Error(int(r.Code()), r.Message(), nil))
 		} else {
-			httpx.OkJson(w, resp)
+			httpx.OkJson(w, resultx.Success(resp))
 		}
 	}
 }

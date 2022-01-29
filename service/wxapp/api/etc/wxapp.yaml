@@ -6,13 +6,18 @@ Mysql:
   DataSource: root:123456@tcp(mysql:3306)/mall?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
 
 CacheRedis:
-  - Host: redis:6379
+  - Host: 127.0.0.1:6379
     Pass:
     Type: node
 
 Auth:
   AccessSecret: uOvKLmVfztaXGpNYd4Z0I1SiT7MweJhl
   AccessExpire: 86400
+
+RedisConf:
+  Host: 127.0.0.1:6379
+  Pass:
+  Type: node
 
 #小程序配置
 WxMiniConf:
@@ -45,3 +50,9 @@ UserRpc:
     Hosts:
       - 127.0.0.1:2379
     Key: user.rpc
+
+CartRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: cart.rpc

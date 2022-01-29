@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mqclient;
+
+option go_package = "mq";
+
+// 订单创建
+message CreateReq {
+    int64 Uid = 1;
+    int64 Pid = 2;
+    int64 Amount = 3;
+    int64 Status = 4;
+}
+message CreateResp {
+	int64 id = 1;
+}
+
+
+service Mq {
+    rpc Create(CreateReq) returns(CreateResp);
+
+}
