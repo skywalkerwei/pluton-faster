@@ -14,21 +14,21 @@ import (
 /**
 监听关闭订单
 */
-type SchedulerTask struct {
+type SchedulerJob struct {
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
 
-func NewSchedulerTask(ctx context.Context, svcCtx *svc.ServiceContext) *SchedulerTask {
-	return &SchedulerTask{
+func NewSchedulerJob(ctx context.Context, svcCtx *svc.ServiceContext) *SchedulerJob {
+	return &SchedulerJob{
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *SchedulerTask) Start() {
+func (l *SchedulerJob) Start() {
 
-	fmt.Println("Scheduler start ")
+	fmt.Println("SchedulerJob start ")
 	loc, err := time.LoadLocation("Asia/Shanghai")
 	if err != nil {
 		log.Fatal(err)
@@ -40,7 +40,7 @@ func (l *SchedulerTask) Start() {
 		},
 	)
 
-	payload, err := json.Marshal(HomestayOrderCloseTaskPayload{Sn: "sb002"})
+	payload, err := json.Marshal(TestTaskPayload{Sn: "sb"})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -55,6 +55,6 @@ func (l *SchedulerTask) Start() {
 	}
 }
 
-func (l *SchedulerTask) Stop() {
-	fmt.Println("Scheduler stop")
+func (l *SchedulerJob) Stop() {
+	fmt.Println("SchedulerJob stop")
 }

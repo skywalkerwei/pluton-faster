@@ -15,8 +15,8 @@ func AsynqMqs(c config.Config, ctx context.Context, svcContext *svc.ServiceConte
 	return []service.Service{
 		//监听消费流水状态变更
 		//.....
-		deferMq.NewAsynqTask(ctx, svcContext),
-		deferMq.NewSchedulerTask(ctx, svcContext),
+		deferMq.NewAsynqJob(ctx, svcContext),
+		deferMq.NewSchedulerJob(ctx, svcContext),
 	}
 
 }

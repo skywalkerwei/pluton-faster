@@ -12,21 +12,21 @@ import (
 /**
 监听关闭订单
 */
-type AsynqTask struct {
+type AsynqJob struct {
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
 
-func NewAsynqTask(ctx context.Context, svcCtx *svc.ServiceContext) *AsynqTask {
-	return &AsynqTask{
+func NewAsynqJob(ctx context.Context, svcCtx *svc.ServiceContext) *AsynqJob {
+	return &AsynqJob{
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *AsynqTask) Start() {
+func (l *AsynqJob) Start() {
 
-	fmt.Println("AsynqTask start ")
+	fmt.Println("AsynqJob start ")
 
 	srv := asynq.NewServer(
 		asynq.RedisClientOpt{Addr: l.svcCtx.Config.Redis.Host, Password: l.svcCtx.Config.Redis.Pass},
@@ -42,16 +42,13 @@ func (l *AsynqTask) Start() {
 
 	mux := asynq.NewServeMux()
 
-	//关闭民宿订单任务
-	//mux.HandleFunc(asynqmq.TypeHomestayOrderCloseDelivery, l.closeHomestayOrderStateMqHandler)
-
-	mux.HandleFunc("msg", l.closeHomestayOrderStateMqHandler)
+	mux.HandleFunc("msg", l.testJob)
 
 	if err := srv.Run(mux); err != nil {
 		log.Fatalf("could not run server: %v", err)
 	}
 }
 
-func (l *AsynqTask) Stop() {
-	fmt.Println("AsynqTask stop")
+func (l *AsynqJob) Stop() {
+	fmt.Println("AsynqJob stop")
 }

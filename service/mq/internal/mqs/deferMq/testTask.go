@@ -6,22 +6,24 @@ import (
 	"fmt"
 	"github.com/hibiken/asynq"
 	"github.com/pkg/errors"
+	"time"
 )
 
-type HomestayOrderCloseTaskPayload struct {
+type TestTaskPayload struct {
 	Sn string
 }
 
-func (l *AsynqTask) closeHomestayOrderStateMqHandler(ctx context.Context, t *asynq.Task) error {
+func (l *AsynqJob) testJob(ctx context.Context, t *asynq.Task) error {
 
-	fmt.Println("------HandleMsg start------")
+	fmt.Println("------TestJob start------")
 
-	var p HomestayOrderCloseTaskPayload
+	var p TestTaskPayload
 	if err := json.Unmarshal(t.Payload(), &p); err != nil {
 		return errors.Wrapf(errors.New("解析asynq task payload err"), "closeHomestayOrderStateMqHandler payload err:%v, payLoad:%+v", err, t.Payload())
 	}
 
-	fmt.Println(fmt.Printf("{sn: \"%s\"}", p.Sn))
+	fmt.Println(fmt.Printf("{sn: \"%s\"}", p.Sn+time.Now().String()))
+
 	return nil
 
 }
