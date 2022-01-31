@@ -45,6 +45,8 @@ func (l *AsynqTask) Start() {
 	//关闭民宿订单任务
 	//mux.HandleFunc(asynqmq.TypeHomestayOrderCloseDelivery, l.closeHomestayOrderStateMqHandler)
 
+	mux.HandleFunc("msg", l.closeHomestayOrderStateMqHandler)
+
 	if err := srv.Run(mux); err != nil {
 		log.Fatalf("could not run server: %v", err)
 	}
