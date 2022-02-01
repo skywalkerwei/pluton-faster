@@ -1,6 +1,6 @@
 Name: message-mq
 Host: 0.0.0.0
-Port: 6666
+Port: 7776
 
 Log:
   ServiceName: message-mq

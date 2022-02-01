@@ -1,0 +1,76 @@
+Name: WxApp
+Host: 0.0.0.0
+Port: 7770
+
+Mysql:
+  DataSource: root:123456@tcp(mysql:3306)/mall?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
+CacheRedis:
+  - Host: 127.0.0.1:6379
+    Pass:
+    Type: node
+
+Auth:
+  AccessSecret: uOvKLmVfztaXGpNYd4Z0I1SiT7MweJhl
+  AccessExpire: 86400
+
+RedisConf:
+  Host: 127.0.0.1:6379
+  Pass:
+  Type: node
+
+#小程序配置
+WxMiniConf:
+  AppId: wxSBdd729fadddddd
+  Secret: 20365395b3de9b2a9351ddddddd
+
+#WxPayConf
+WxPayConf:
+  MchId: "11234455"
+  SerialNo: 333333964008A80E5524718049ABB333322
+  APIv3Key: twewe23vjXrlnpTed5afyZZJ6FrI2323dd
+  PrivateKey: |-
+    -----BEGIN PRIVATE KEY-----
+    11BADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDBY/kxOoNkZxgK
+    /OKq+xMX5Uv+oeELdbNq9qZOYVs4Vi7FrSyGYcPQyqItRKhl7sCZJRsqec7pFZUv
+    hDyP0yYv+cADRnTHODkdVmogFS0YUH9ocmO4cArZORkG4Mu5+m87PpzsB/637kGa
+    n1lFxzMJqT/YqhynVqJtFhL/kVukig+nYcpueiemye/6EBpQYm9+ffZLr0l6l2n9
+    Zm3zEo+scBBRrrFvZGu1DdskH19Mk9/Z19H+2zb2xu3G/vt8/ndoRrWtwz33beDc
+    Bxm2QfyXjV8GiJ/DYYrgIamPHLVNCSWes8V77nLJNbUS0hLAJJlfnD79CWtQo8gj
+    UrUvj+CzAgMBAAECggEARQGAVKGVaskimiEcXHhUms017bkjjSxFhiBWvVcd7p9J
+    -----END PRIVATE KEY-----
+
+  NotifyUrl : http://xxx.xxx.com/payment/v1/thirdPayment/thirdPaymentWxPayCallback
+
+
+UserRpc:
+  App: userapi                          # App 标识
+  Token: 6jKNZbEpYGeUMAifz10gOnmoty3TV  # Token 值
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: user.rpc
+
+ProductRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: product.rpc
+
+CartRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: cart.rpc
+
+OrderRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: order.rpc
+
+PayRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: pay.rpc
