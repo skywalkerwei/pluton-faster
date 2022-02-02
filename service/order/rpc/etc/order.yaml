@@ -1,0 +1,31 @@
+Name: order.rpc
+<<<<<<< HEAD:service/rpc/order/etc/order.yaml
+ListenOn: 0.0.0.0:6662
+=======
+ListenOn: 0.0.0.0:6300
+>>>>>>> c3442f2aed4419e018f66e1d844e317db6477f8c:service/order/rpc/etc/order.yaml
+
+Etcd:
+  Hosts:
+    - 127.0.0.1:2379
+  Key: order.rpc
+
+Mysql:
+  DataSource: root:123456@tcp(127.0.0.1:3306)/api?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
+CacheRedis:
+  - Host: 127.0.0.1:6379
+    Type: node
+    Pass:
+
+UserRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: user.rpc
+
+ProductRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: product.rpc
