@@ -6,7 +6,7 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/api/admin/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/api/admin/internal/types"
 
-	"github.com/zeromicro/go-zero/core/logx"
+	"github.com/tal-tech/go-zero/core/logx"
 )
 
 type UserInfoLogic struct {

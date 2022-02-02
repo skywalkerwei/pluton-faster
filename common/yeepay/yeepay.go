@@ -29,10 +29,13 @@ import (
 )
 
 var (
-	YEEPAY_PRIKEY            = "YEEPAY_PRIKEY"
-	YEEPAY_PUBKEY            = "YEEPAY_PUBKEY"
+	YEEPAY_PRIKEY = "YEEPAY_PRIKEY"
+	YEEPAY_PUBKEY = "YEEPAY_PUBKEY"
 	RETURN_MSG_INTERNALERROR = "RETURN_MSG_INTERNALERROR"
 )
+
+
+
 
 // CurlRequest 易宝支付请求签名接口
 // queryType query string true "请求类型"

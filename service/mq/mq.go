@@ -3,10 +3,10 @@ package main
 import (
 	"flag"
 	"github.com/skywalkerwei/pluton-faster/service/mq/internal/listen"
-	"github.com/zeromicro/go-zero/core/service"
+	"github.com/tal-tech/go-zero/core/service"
 
 	"github.com/skywalkerwei/pluton-faster/service/mq/internal/config"
-	"github.com/zeromicro/go-zero/core/conf"
+	"github.com/tal-tech/go-zero/core/conf"
 )
 
 var configFile = flag.String("f", "etc/mq.yaml", "the config file")

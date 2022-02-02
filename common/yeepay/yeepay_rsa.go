@@ -34,7 +34,7 @@ func (rsas *RSASecurity) PriKeyDECRYPT(input []byte) ([]byte, error) {
 	}
 
 	return ioutil.ReadAll(output)*/
-	return priKeyByte(rsas.prikey, input, false)
+	return priKeyByte(rsas.prikey,input,false)
 }
 
 // 私钥加密或解密byte
@@ -58,6 +58,7 @@ func priKeyByte(pri *rsa.PrivateKey, in []byte, isEncrytp bool) ([]byte, error) 
 		return ioutil.ReadAll(out)
 	}
 }
+
 
 // 私钥加密或解密Reader
 func priKeyIO(pri *rsa.PrivateKey, r io.Reader, w io.Writer, isEncrytp bool) (err error) {
@@ -265,6 +266,7 @@ func (rsas *RSASecurity) VerifySignSha1WithRsa(data string, signData string) err
 	hash.Write([]byte(data))
 	return rsa.VerifyPKCS1v15(rsas.pubkey, crypto.SHA1, hash.Sum(nil), sign)
 }
+
 
 // 公钥加密或解密Reader
 func pubKeyIO(pub *rsa.PublicKey, in io.Reader, out io.Writer, isEncrytp bool) (err error) {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/logic"
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/svc"
-	"github.com/zeromicro/go-zero/rest/httpx"
+	"github.com/tal-tech/go-zero/rest/httpx"
 )
 
 func WxPayCallBackHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {

@@ -5,8 +5,8 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/internal/config"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/productclient"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/user/userclient"
-	"github.com/zeromicro/go-zero/core/stores/sqlx"
-	"github.com/zeromicro/go-zero/zrpc"
+	"github.com/tal-tech/go-zero/core/stores/sqlx"
+	"github.com/tal-tech/go-zero/zrpc"
 )
 
 type ServiceContext struct {
