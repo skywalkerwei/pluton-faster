@@ -7,8 +7,8 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/rpc/pay/payclient"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/productclient"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/user/userclient"
-	"github.com/tal-tech/go-zero/core/stores/redis"
-	"github.com/tal-tech/go-zero/zrpc"
+	"github.com/zeromicro/go-zero/core/stores/redis"
+	"github.com/zeromicro/go-zero/zrpc"
 )
 
 type ServiceContext struct {

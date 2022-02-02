@@ -1,0 +1,54 @@
+type (
+	// 支付创建
+	PayCreateRequest {
+		Uid    int64 `json:"uid"`
+		Oid    int64 `json:"oid"`
+		Amount int64 `json:"amount"`
+	}
+	PayCreateResponse {
+		Id int64 `json:"id"`
+	}
+	// 支付创建
+
+	// 支付详情
+	PayDetailRequest {
+		Id int64 `json:"id"`
+	}
+	PayDetailResponse {
+		Id     int64 `json:"id"`
+		Uid    int64 `json:"uid"`
+		Oid    int64 `json:"oid"`
+		Amount int64 `json:"amount"`
+		Source int64 `json:"source"`
+		Status int64 `json:"status"`
+	}
+	// 支付详情
+
+	// 支付回调
+	PayCallbackRequest {
+		Id     int64 `json:"id"`
+		Uid    int64 `json:"uid"`
+		Oid    int64 `json:"oid"`
+		Amount int64 `json:"amount"`
+		Source int64 `json:"source"`
+		Status int64 `json:"status"`
+	}
+	PayCallbackResponse {
+	}
+	// 支付回调
+
+)
+
+@server(
+	jwt: Auth
+)
+service WxApp {
+	@handler PayCreate
+	post /api/pay/create(PayCreateRequest) returns (PayCreateResponse)
+	
+	@handler PayDetail
+	post /api/pay/detail(PayDetailRequest) returns (PayDetailResponse)
+	
+	@handler PayCallback
+	post /api/pay/callback(PayCallbackRequest) returns (PayCallbackResponse)
+}

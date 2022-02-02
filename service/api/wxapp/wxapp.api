@@ -1,0 +1,16 @@
+info(
+	title: "小程序端 api"
+	desc: "小程序端 api"
+	author: "kyle"
+	email: "skywalkerwei@gmail.com"
+)
+
+import(
+	"desc/user.api"
+	"desc/shop.api"
+	"desc/product.api"
+	"desc/carts.api"
+	"desc/order.api"
+	"desc/pay.api"
+	"desc/other.api"
+)
