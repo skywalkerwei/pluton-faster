@@ -10,7 +10,7 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/rpc/pay/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/pay/pay"
 
-	"github.com/tal-tech/go-zero/core/logx"
+	"github.com/zeromicro/go-zero/core/logx"
 )
 
 type CallbackLogic struct {

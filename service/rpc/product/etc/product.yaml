@@ -1,5 +1,5 @@
 Name: product.rpc
-ListenOn: 0.0.0.0:6661
+ListenOn: 0.0.0.0:7102
 
 Etcd:
   Hosts:

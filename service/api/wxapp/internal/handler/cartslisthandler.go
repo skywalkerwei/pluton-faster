@@ -7,7 +7,7 @@ import (
 
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/logic"
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/svc"
-	"github.com/tal-tech/go-zero/rest/httpx"
+	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
 func CartsListHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {

@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/svc"
-	"github.com/tal-tech/go-zero/core/logx"
+	"github.com/zeromicro/go-zero/core/logx"
 )
 
 type WxPayCallBackLogic struct {

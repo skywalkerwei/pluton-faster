@@ -1,5 +1,5 @@
 Name: pay.rpc
-ListenOn: 0.0.0.0:6663
+ListenOn: 0.0.0.0:7103
 
 Etcd:
   Hosts:

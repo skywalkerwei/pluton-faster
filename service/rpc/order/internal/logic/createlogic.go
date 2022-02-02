@@ -7,13 +7,13 @@ import (
 	"github.com/dtm-labs/dtmgrpc"
 	"github.com/skywalkerwei/pluton-faster/service/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/user/user"
-	"github.com/tal-tech/go-zero/core/stores/sqlx"
+	"github.com/zeromicro/go-zero/core/stores/sqlx"
 	"google.golang.org/grpc/status"
 
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/order"
 
-	"github.com/tal-tech/go-zero/core/logx"
+	"github.com/zeromicro/go-zero/core/logx"
 )
 
 type CreateLogic struct {

@@ -4,15 +4,15 @@ import (
 	"flag"
 	"fmt"
 	"github.com/skywalkerwei/pluton-faster/common/resultx"
-	"github.com/tal-tech/go-zero/rest/httpx"
+	"github.com/zeromicro/go-zero/rest/httpx"
 	"net/http"
 
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/config"
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/handler"
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/svc"
 
-	"github.com/tal-tech/go-zero/core/conf"
-	"github.com/tal-tech/go-zero/rest"
+	"github.com/zeromicro/go-zero/core/conf"
+	"github.com/zeromicro/go-zero/rest"
 )
 
 var configFile = flag.String("f", "etc/wxapp.yaml", "the config file")

@@ -5,7 +5,7 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/mq/internal/config"
 	"github.com/skywalkerwei/pluton-faster/service/mq/internal/svc"
 
-	"github.com/tal-tech/go-zero/core/service"
+	"github.com/zeromicro/go-zero/core/service"
 )
 
 //kq

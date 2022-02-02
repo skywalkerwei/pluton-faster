@@ -8,7 +8,7 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/product"
 
-	"github.com/tal-tech/go-zero/core/logx"
+	"github.com/zeromicro/go-zero/core/logx"
 )
 
 type UpdateLogic struct {

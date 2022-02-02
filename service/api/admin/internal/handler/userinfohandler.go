@@ -5,7 +5,7 @@ import (
 
 	"github.com/skywalkerwei/pluton-faster/service/api/admin/internal/logic"
 	"github.com/skywalkerwei/pluton-faster/service/api/admin/internal/svc"
-	"github.com/tal-tech/go-zero/rest/httpx"
+	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
 func UserInfoHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
