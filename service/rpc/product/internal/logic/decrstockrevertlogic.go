@@ -4,13 +4,13 @@ import (
 	"context"
 	"database/sql"
 	"github.com/dtm-labs/dtmgrpc"
-	"github.com/zeromicro/go-zero/core/stores/sqlx"
+	"github.com/tal-tech/go-zero/core/stores/sqlx"
 	"google.golang.org/grpc/status"
 
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/product"
 
-	"github.com/zeromicro/go-zero/core/logx"
+	"github.com/tal-tech/go-zero/core/logx"
 )
 
 type DecrStockRevertLogic struct {

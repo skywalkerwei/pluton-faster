@@ -6,7 +6,7 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/mq/internal/mqs/deferMq"
 	"github.com/skywalkerwei/pluton-faster/service/mq/internal/svc"
 
-	"github.com/zeromicro/go-zero/core/service"
+	"github.com/tal-tech/go-zero/core/service"
 )
 
 //asynq

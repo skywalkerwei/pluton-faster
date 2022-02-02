@@ -7,7 +7,7 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/rpc/cart/cart"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/cart/internal/svc"
 
-	"github.com/zeromicro/go-zero/core/logx"
+	"github.com/tal-tech/go-zero/core/logx"
 )
 
 type ListLogic struct {

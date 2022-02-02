@@ -1,5 +1,5 @@
 Name: cart.rpc
-ListenOn: 0.0.0.0:7105
+ListenOn: 0.0.0.0:6664
 
 Etcd:
   Hosts:

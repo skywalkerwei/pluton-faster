@@ -3,7 +3,7 @@ package svc
 import (
 	"github.com/skywalkerwei/pluton-faster/service/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/internal/config"
-	"github.com/zeromicro/go-zero/core/stores/sqlx"
+	"github.com/tal-tech/go-zero/core/stores/sqlx"
 )
 
 type ServiceContext struct {

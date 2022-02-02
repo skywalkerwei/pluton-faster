@@ -1,5 +1,5 @@
 Name: order.rpc
-ListenOn: 0.0.0.0:7104
+ListenOn: 0.0.0.0:6662
 
 Etcd:
   Hosts:

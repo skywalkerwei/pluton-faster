@@ -8,7 +8,7 @@ import (
 
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/order"
 
-	"github.com/zeromicro/go-zero/zrpc"
+	"github.com/tal-tech/go-zero/zrpc"
 	"google.golang.org/grpc"
 )
 

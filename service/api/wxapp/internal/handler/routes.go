@@ -6,7 +6,7 @@ import (
 
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/svc"
 
-	"github.com/zeromicro/go-zero/rest"
+	"github.com/tal-tech/go-zero/rest"
 )
 
 func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {

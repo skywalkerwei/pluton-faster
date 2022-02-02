@@ -9,9 +9,9 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/rpc/pay/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/pay/pay"
 
-	"github.com/zeromicro/go-zero/core/conf"
-	"github.com/zeromicro/go-zero/core/service"
-	"github.com/zeromicro/go-zero/zrpc"
+	"github.com/tal-tech/go-zero/core/conf"
+	"github.com/tal-tech/go-zero/core/service"
+	"github.com/tal-tech/go-zero/zrpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )

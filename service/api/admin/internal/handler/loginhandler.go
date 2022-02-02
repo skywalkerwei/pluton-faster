@@ -6,7 +6,7 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/api/admin/internal/logic"
 	"github.com/skywalkerwei/pluton-faster/service/api/admin/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/api/admin/internal/types"
-	"github.com/zeromicro/go-zero/rest/httpx"
+	"github.com/tal-tech/go-zero/rest/httpx"
 )
 
 func LoginHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {

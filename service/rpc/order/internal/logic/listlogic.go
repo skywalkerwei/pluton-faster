@@ -9,7 +9,7 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/order"
 
-	"github.com/zeromicro/go-zero/core/logx"
+	"github.com/tal-tech/go-zero/core/logx"
 )
 
 type ListLogic struct {
