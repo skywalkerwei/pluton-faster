@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/dtm-labs/dtmgrpc"
-	"github.com/skywalkerwei/pluton-faster/service/model"
+	"github.com/skywalkerwei/pluton-faster/service/rpc/order/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/user/user"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
 	"google.golang.org/grpc/status"

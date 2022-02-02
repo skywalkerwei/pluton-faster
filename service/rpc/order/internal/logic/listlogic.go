@@ -5,8 +5,8 @@ import (
 	"github.com/skywalkerwei/pluton-faster/service/rpc/user/user"
 	"google.golang.org/grpc/status"
 
-	"github.com/skywalkerwei/pluton-faster/service/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/internal/svc"
+	"github.com/skywalkerwei/pluton-faster/service/rpc/order/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/order"
 
 	"github.com/zeromicro/go-zero/core/logx"

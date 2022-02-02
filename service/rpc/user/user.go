@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/skywalkerwei/pluton-faster/common/interceptor/rpcserver"
 
 	"github.com/skywalkerwei/pluton-faster/service/rpc/user/internal/config"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/user/internal/server"
@@ -33,6 +34,9 @@ func main() {
 			reflection.Register(grpcServer)
 		}
 	})
+	//rpc log
+	s.AddUnaryInterceptors(rpcserver.LoggerInterceptor)
+
 	defer s.Stop()
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)

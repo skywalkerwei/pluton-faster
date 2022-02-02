@@ -2,8 +2,8 @@ package logic
 
 import (
 	"context"
-	"github.com/skywalkerwei/pluton-faster/service/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/order"
+	"github.com/skywalkerwei/pluton-faster/service/rpc/pay/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/user/user"
 	"google.golang.org/grpc/status"
 

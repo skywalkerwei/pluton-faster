@@ -4,8 +4,8 @@ import (
 	"context"
 	"google.golang.org/grpc/status"
 
-	"github.com/skywalkerwei/pluton-faster/service/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/internal/svc"
+	"github.com/skywalkerwei/pluton-faster/service/rpc/product/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/product"
 
 	"github.com/zeromicro/go-zero/core/logx"

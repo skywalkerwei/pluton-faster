@@ -1,8 +1,8 @@
 package svc
 
 import (
-	"github.com/skywalkerwei/pluton-faster/service/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/order/internal/config"
+	"github.com/skywalkerwei/pluton-faster/service/rpc/order/model"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/product/productclient"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/user/userclient"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
