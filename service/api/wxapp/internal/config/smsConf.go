@@ -8,13 +8,12 @@ type SmsConf struct {
 		AccessKeySecret string
 		SignName        string
 	}
-	Debug         bool
-	Length        int
-	Life          int
-	MaxCheckTimes int
-	MagicCode     string
-	TestUsers     []string
-	Template      struct {
+	Debug     bool
+	Length    int
+	Life      int
+	MagicCode string
+	TestUsers []string
+	Template  struct {
 		Reg string
 	}
 }

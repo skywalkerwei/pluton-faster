@@ -29,7 +29,6 @@ SmsConf:
   Debug: true
   Length: 6
   Life: 300
-  MaxCheckTimes: 5
   MagicCode: "202020"
   TestUsers:
     - 18012312312

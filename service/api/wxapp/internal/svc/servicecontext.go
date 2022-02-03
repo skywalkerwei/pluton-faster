@@ -20,6 +20,7 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
 		Config:      c,
 		RedisClient: redis.New(c.RedisConf.Host),
+
 		//UserRpc:     userclient.NewUser(zrpc.MustNewClient(c.UserRpc)),
 		//CartRpc:     cartclient.NewCart(zrpc.MustNewClient(c.CartRpc)),
 		//PayRpc:      payclient.NewPay(zrpc.MustNewClient(c.PayRpc)),

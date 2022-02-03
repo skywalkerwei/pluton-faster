@@ -13,6 +13,15 @@ type AliSms struct {
 	signName     string
 }
 
+func NewAliSms(RegionId string, AccessKeyId string, AccessSecret string, signName string) *AliSms {
+	return &AliSms{
+		RegionId:     RegionId,
+		AccessKeyId:  AccessKeyId,
+		AccessSecret: AccessSecret,
+		signName:     signName,
+	}
+}
+
 func (s *AliSms) SendCode(template string, phone string, code string) error {
 	//调用阿里云短信接口发送短信
 	client, err := dysmsapi.NewClientWithAccessKey(s.RegionId, s.AccessKeyId, s.AccessSecret)

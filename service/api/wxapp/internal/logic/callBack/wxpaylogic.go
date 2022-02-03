@@ -2,6 +2,7 @@ package callBack
 
 import (
 	"context"
+	"net/http"
 
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/types"
@@ -23,8 +24,7 @@ func NewWxPayLogic(ctx context.Context, svcCtx *svc.ServiceContext) WxPayLogic {
 	}
 }
 
-func (l *WxPayLogic) WxPay(req types.WxPayCallBackReq) (resp *types.WxPayCallBackResp, err error) {
-	// todo: add your logic here and delete this line
+func (l *WxPayLogic) WxPay(rw http.ResponseWriter, req *http.Request) (resp *types.WxPayCallBackResp, err error) {
 
 	return
 }
