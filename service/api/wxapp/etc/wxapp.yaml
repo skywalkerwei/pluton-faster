@@ -19,6 +19,25 @@ RedisConf:
   Pass:
   Type: node
 
+#Sms
+SmsConf:
+  AliYun:
+    RegionId: "RegionId"
+    AccessKeyID: "AccessKeyID"
+    AccessKeySecret: "AccessKeySecret"
+    SignName: "SignName"
+  Debug: true
+  Length: 6
+  Life: 300
+  MaxCheckTimes: 5
+  MagicCode: "202020"
+  TestUsers:
+    - 18012312312
+    - 18627111095
+  Template:
+    Reg: "reg001"
+
+
 #小程序配置
 WxMiniConf:
   AppId: wxSBdd729fadddddd

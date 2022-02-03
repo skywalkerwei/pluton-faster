@@ -10,6 +10,7 @@ type Config struct {
 	rest.RestConf
 	WxMiniConf WxMiniConf
 	WxPayConf  WxPayConf
+	SmsConf    SmsConf
 	RedisConf  redis.RedisConf
 	Auth       struct {
 		AccessSecret string

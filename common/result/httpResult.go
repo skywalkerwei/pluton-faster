@@ -26,7 +26,6 @@ func HttpResult(r *http.Request, w http.ResponseWriter, resp interface{}, err er
 
 		causeErr := errors.Cause(err)                // err类型
 		if e, ok := causeErr.(*xerr.CodeError); ok { //自定义错误类型
-			//自定义CodeError
 			errcode = e.GetErrCode()
 			errmsg = e.GetErrMsg()
 		} else {
@@ -34,9 +33,10 @@ func HttpResult(r *http.Request, w http.ResponseWriter, resp interface{}, err er
 				grpcCode := uint32(gstatus.Code())
 				if xerr.IsCodeErr(grpcCode) { //区分自定义错误跟系统底层、db等错误，底层、db错误不能返回给前端
 					errcode = grpcCode * 100
-					errmsg = gstatus.Message()
 				}
+				errmsg = gstatus.Message()
 			}
+
 		}
 
 		logx.WithContext(r.Context()).Errorf("【API-ERR】 : %+v ", err)
@@ -67,8 +67,8 @@ func AuthHttpResult(r *http.Request, w http.ResponseWriter, resp interface{}, er
 				grpcCode := uint32(gstatus.Code())
 				if xerr.IsCodeErr(grpcCode) { //区分自定义错误跟系统底层、db等错误，底层、db错误不能返回给前端
 					errcode = grpcCode * 100
-					errmsg = gstatus.Message()
 				}
+				errmsg = gstatus.Message()
 			}
 		}
 

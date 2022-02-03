@@ -1,0 +1,97 @@
+info(
+	title: "auth-api"
+	desc: "auth-api"
+	author: "kyle"
+	email: "skywalkerwei@gmail.com"
+)
+
+type (
+	// 用户登录
+	AuthCodeRequest {
+		Code   		string `json:"code"`
+	}
+	AuthCodeCodeResponse {
+		OpenID  	string `json:"openID"`
+		IsReg  		bool `json:"isReg"`
+		UserInfo 	UserInfoResponse  `json:"userInfo"`
+	}
+
+	// 解密
+	DecryptRequest {
+		OpenId   		string `json:"openId"`
+		EncryptedData   string `json:"encryptedData"`
+		Iv   			string `json:"iv"`
+	}
+	DecryptResponse {
+		Mobile   string `json:"mobile"`
+	}
+
+	//注册
+	RegRequest {
+		OpenId   	string `json:"openId"`
+		Mobile   	string `json:"mobile"`
+	}
+
+	//同步头像昵称
+	BindRequest {
+		NickName   	string `json:"nickName"`
+		Avatar   	string `json:"avatar"`
+	}
+
+	// 用户信息
+	UserInfoResponse {
+		Id     int64  `json:"uid"`
+		Name   string `json:"name"`
+		Gender int64  `json:"gender"`
+		Mobile string `json:"mobile"`
+		Token  string `json:"token"`
+	}
+
+	// 用户信息
+	SuccessResponse {
+	}
+)
+
+
+@server(
+	group: auth
+)
+service WxApp {
+	@doc(
+		summary: "登录"
+	)
+	@handler code
+	post /api/auth/code(AuthCodeRequest) returns (AuthCodeCodeResponse)
+
+	@doc(
+		summary: "解密-手机号或头像昵称"
+	)
+	@handler Decrypt
+	post /api/auth/decrypt(DecryptRequest) returns (DecryptResponse)
+
+	@doc(
+		summary: "注册"
+	)
+	@handler Reg
+	post /api/auth/reg(RegRequest) returns (UserInfoResponse)
+
+}
+
+@server(
+	group: auth
+	jwt: Auth
+)
+service WxApp {
+	@doc(
+		summary: "获取用户信息"
+	)
+	@handler me
+	get /api/auth/me returns (UserInfoResponse)
+
+	@doc(
+		summary: "绑定用户信息"
+	)
+	@handler bind
+	get /api/auth/bind(BindRequest) returns (SuccessResponse)
+
+}

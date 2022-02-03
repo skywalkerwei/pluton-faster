@@ -4,6 +4,9 @@ package handler
 import (
 	"net/http"
 
+	auth "github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/handler/auth"
+	callBack "github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/handler/callBack"
+	other "github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/handler/other"
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
@@ -14,75 +17,33 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
-				Path:    "/api/user/login",
-				Handler: LoginHandler(serverCtx),
+				Path:    "/api/auth/code",
+				Handler: auth.CodeHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,
-				Path:    "/api/user/register",
-				Handler: RegisterHandler(serverCtx),
+				Path:    "/api/auth/decrypt",
+				Handler: auth.DecryptHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/api/auth/reg",
+				Handler: auth.RegHandler(serverCtx),
 			},
 		},
-	)
-
-	server.AddRoutes(
-		[]rest.Route{
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/user/userinfo",
-				Handler: UserInfoHandler(serverCtx),
-			},
-		},
-		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
-	)
-
-	server.AddRoutes(
-		[]rest.Route{
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/product/create",
-				Handler: ProductCreateHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/product/update",
-				Handler: ProductUpdateHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/product/remove",
-				Handler: ProductRemoveHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/product/detail",
-				Handler: ProductDetailHandler(serverCtx),
-			},
-		},
-		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
 	)
 
 	server.AddRoutes(
 		[]rest.Route{
 			{
 				Method:  http.MethodGet,
-				Path:    "/api/carts/list",
-				Handler: CartsListHandler(serverCtx),
+				Path:    "/api/auth/me",
+				Handler: auth.MeHandler(serverCtx),
 			},
 			{
-				Method:  http.MethodPost,
-				Path:    "/api/carts/add",
-				Handler: CartsAddHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/carts/edit",
-				Handler: CartsEditHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/carts/del",
-				Handler: CartsDelHandler(serverCtx),
+				Method:  http.MethodGet,
+				Path:    "/api/auth/bind",
+				Handler: auth.BindHandler(serverCtx),
 			},
 		},
 		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
@@ -92,60 +53,18 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
-				Path:    "/api/order/create",
-				Handler: OrderCreateHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/order/update",
-				Handler: OrderUpdateHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/order/remove",
-				Handler: OrderRemoveHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/order/detail",
-				Handler: OrderDetailHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/order/list",
-				Handler: OrderListHandler(serverCtx),
+				Path:    "/api/SendSms",
+				Handler: other.SendSmsHandler(serverCtx),
 			},
 		},
-		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
 	)
 
 	server.AddRoutes(
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
-				Path:    "/api/pay/create",
-				Handler: PayCreateHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/pay/detail",
-				Handler: PayDetailHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/pay/callback",
-				Handler: PayCallbackHandler(serverCtx),
-			},
-		},
-		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
-	)
-
-	server.AddRoutes(
-		[]rest.Route{
-			{
-				Method:  http.MethodPost,
-				Path:    "/api/wxPayCallBack",
-				Handler: WxPayCallBackHandler(serverCtx),
+				Path:    "/api/callBack/wxPay",
+				Handler: callBack.WxPayHandler(serverCtx),
 			},
 		},
 	)
