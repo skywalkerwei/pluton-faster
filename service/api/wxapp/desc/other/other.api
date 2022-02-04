@@ -36,9 +36,7 @@ service WxApp {
 	group: callBack
 )
 service WxApp {
-	@doc(
-		summary: "支付回调"
-	)
+	@doc "第三方：微信支付回调"
 	@handler WxPay
 	post /api/callBack/wxPay(WxPayCallBackReq) returns (WxPayCallBackResp)
 }
