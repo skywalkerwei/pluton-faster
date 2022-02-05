@@ -1,0 +1,23 @@
+Name: sys.rpc
+ListenOn: 127.0.0.1:7109
+
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: sys.rpc
+
+Mysql:
+  DataSource: root:123456@tcp(127.0.0.1:3306)/api?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
+CacheRedis:
+  - Host: 127.0.0.1:6379
+    Type: node
+    Pass:
+
+JWT:
+  AccessSecret: ad879037-c7a4-4063-9236-6bfc35d54b7d
+  AccessExpire: 86400
+
+Log:
+  Mode: file
+  Path: logs/sys
