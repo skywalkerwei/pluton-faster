@@ -14,9 +14,6 @@ message loginResp {
   string currentAuthority = 2;
   int64 id = 3;
   string userName = 4;
-  string AccessToken = 5;
-  int64 AccessExpire = 6;
-  int64 RefreshAfter = 7;
 }
 
 message InfoReq {

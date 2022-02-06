@@ -2,18 +2,18 @@
 package types
 
 type LoginRequest struct {
-	Mobile   string `json:"mobile"`
+	UserName string `json:"userName"`
 	Password string `json:"password"`
 }
 
 type LoginResponse struct {
+	Uid          int64  `json:"uid"`
 	AccessToken  string `json:"accessToken"`
 	AccessExpire int64  `json:"accessExpire"`
 }
 
 type UserInfoResponse struct {
-	Id     int64  `json:"id"`
-	Name   string `json:"name"`
-	Gender int64  `json:"gender"`
-	Mobile string `json:"mobile"`
+	Id               int64  `json:"uid"`
+	UserName         string `json:"userName"`
+	CurrentAuthority string `json:"currentAuthority"`
 }

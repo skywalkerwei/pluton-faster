@@ -1,0 +1,2 @@
+{"@timestamp":"2022-02-06T10:33:36.834+08","level":"error","content":"httpResult.go:42 【API-ERR】 : rpc error: code = Code(100) desc = 用户不存在 ","trace":"dc9dfcd00f0f5b056184b99007a59d1f","span":"c030ff7c0aa46aa8"}
+{"@timestamp":"2022-02-06T10:33:53.432+08","level":"error","content":"httpResult.go:42 【API-ERR】 : rpc error: code = Code(100) desc = 用户不存在 ","trace":"9bab56ddbdf59e631b987d63d5ec6957","span":"205cdcb810fc675f"}
