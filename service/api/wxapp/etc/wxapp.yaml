@@ -19,6 +19,10 @@ RedisConf:
   Pass:
   Type: node
 
+Log:
+  Mode: file
+  Path: logs/wxapp
+
 #Sms
 SmsConf:
   AliYun:
@@ -35,7 +39,6 @@ SmsConf:
     - 18627111095
   Template:
     Reg: "reg001"
-
 
 #小程序配置
 WxMiniConf:

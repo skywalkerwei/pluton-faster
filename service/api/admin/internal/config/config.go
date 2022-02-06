@@ -11,5 +11,10 @@ type Config struct {
 		AccessSecret string
 		AccessExpire int64
 	}
-	SysRpc zrpc.RpcClientConf
+	SysRpc     zrpc.RpcClientConf
+	CartRpc    zrpc.RpcClientConf
+	UserRpc    zrpc.RpcClientConf
+	ProductRpc zrpc.RpcClientConf
+	OrderRpc   zrpc.RpcClientConf
+	PayRpc     zrpc.RpcClientConf
 }

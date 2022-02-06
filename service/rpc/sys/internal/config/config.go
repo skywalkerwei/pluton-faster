@@ -13,9 +13,4 @@ type Config struct {
 	}
 
 	CacheRedis cache.CacheConf
-
-	JWT struct {
-		AccessSecret string
-		AccessExpire int64
-	}
 }
