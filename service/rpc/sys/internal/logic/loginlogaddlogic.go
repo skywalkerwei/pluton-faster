@@ -2,6 +2,8 @@ package logic
 
 import (
 	"context"
+	"github.com/skywalkerwei/pluton-faster/service/rpc/sys/model"
+	"time"
 
 	"github.com/skywalkerwei/pluton-faster/service/rpc/sys/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/rpc/sys/sys"
@@ -24,7 +26,19 @@ func NewLoginLogAddLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Login
 }
 
 func (l *LoginLogAddLogic) LoginLogAdd(in *sys.LoginLogAddReq) (*sys.LoginLogAddResp, error) {
-	// todo: add your logic here and delete this line
+	_, err := l.svcCtx.LoginLogModel.Insert(&model.SysLoginLog{
+		UserName:  in.UserName,
+		Status:    in.Status,
+		Ip:        in.Ip,
+		CreatedAt: time.Now(),
+		CreatedBy: in.CreateBy,
+		UpdatedBy: in.CreateBy,
+		UpdatedAt: time.Now(),
+	})
+
+	if err != nil {
+		return nil, err
+	}
 
 	return &sys.LoginLogAddResp{}, nil
 }

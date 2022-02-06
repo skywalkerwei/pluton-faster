@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"errors"
 	"github.com/skywalkerwei/pluton-faster/common/jwtx"
 	"github.com/skywalkerwei/pluton-faster/service/api/admin/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/api/admin/internal/types"
@@ -24,7 +25,7 @@ func NewLoginLogic(ctx context.Context, svcCtx *svc.ServiceContext) LoginLogic {
 	}
 }
 
-func (l *LoginLogic) Login(req types.LoginRequest) (resp *types.LoginResponse, err error) {
+func (l *LoginLogic) Login(req types.LoginRequest, ip string) (resp *types.LoginResponse, err error) {
 
 	res, err := l.svcCtx.SysRpc.Login(l.ctx, &sysclient.LoginReq{
 		UserName: req.UserName,
@@ -32,6 +33,9 @@ func (l *LoginLogic) Login(req types.LoginRequest) (resp *types.LoginResponse, e
 	})
 	if err != nil {
 		return nil, err
+	}
+	if res.Status == 0 {
+		return nil, errors.New("账户被禁用")
 	}
 
 	now := time.Now().Unix()

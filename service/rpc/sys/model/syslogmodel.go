@@ -28,6 +28,8 @@ type (
 		FindOne(id int64) (*SysLog, error)
 		Update(data *SysLog) error
 		Delete(id int64) error
+		FindAll(int64, int64) ([]*SysLog, error)
+		Count() (int64, error)
 	}
 
 	defaultSysLogModel struct {
@@ -107,4 +109,37 @@ func (m *defaultSysLogModel) formatPrimary(primary interface{}) string {
 func (m *defaultSysLogModel) queryPrimary(conn sqlx.SqlConn, v, primary interface{}) error {
 	query := fmt.Sprintf("select %s from %s where `id` = ? limit 1", sysLogRows, m.table)
 	return conn.QueryRow(v, query, primary)
+}
+
+func (m *defaultSysLogModel) FindAll(Current int64, PageSize int64) ([]*SysLog, error) {
+
+	query := fmt.Sprintf("select %s from %s limit ?,?", sysLogRows, m.table)
+	var resp []*SysLog
+	//err := m.conn.QueryRows(&resp, query, (Current-1)*PageSize, PageSize)
+	err := m.QueryRowsNoCache(&resp, query, (Current-1)*PageSize, PageSize)
+
+	switch err {
+	case nil:
+		return resp, nil
+	case sqlc.ErrNotFound:
+		return nil, ErrNotFound
+	default:
+		return nil, err
+	}
+}
+
+func (m *defaultSysLogModel) Count() (int64, error) {
+	query := fmt.Sprintf("select count(*) as count from %s", m.table)
+
+	var count int64
+	err := m.QueryRowNoCache(&count, query)
+
+	switch err {
+	case nil:
+		return count, nil
+	case sqlc.ErrNotFound:
+		return 0, ErrNotFound
+	default:
+		return 0, err
+	}
 }

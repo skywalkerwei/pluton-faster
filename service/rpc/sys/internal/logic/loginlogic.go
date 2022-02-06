@@ -42,7 +42,7 @@ func (l *LoginLogic) Login(in *sys.LoginReq) (*sys.LoginResp, error) {
 		return nil, status.Error(100, "密码错误")
 	}
 	resp := &sys.LoginResp{
-		Status:           "ok",
+		Status:           userInfo.Status,
 		CurrentAuthority: "admin",
 		Id:               userInfo.Id,
 		UserName:         userInfo.Name,
