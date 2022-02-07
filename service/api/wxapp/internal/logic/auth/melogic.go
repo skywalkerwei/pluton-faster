@@ -2,7 +2,6 @@ package auth
 
 import (
 	"context"
-
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/svc"
 	"github.com/skywalkerwei/pluton-faster/service/api/wxapp/internal/types"
 
@@ -25,6 +24,7 @@ func NewMeLogic(ctx context.Context, svcCtx *svc.ServiceContext) MeLogic {
 
 func (l *MeLogic) Me() (resp *types.UserInfoResponse, err error) {
 	// todo: add your logic here and delete this line
-
+	//uid, _ := l.ctx.Value("uid").(json.Number).Int64()
+	//uid := jwtx.GetUid(l.ctx)
 	return
 }
