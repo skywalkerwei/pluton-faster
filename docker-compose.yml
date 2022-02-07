@@ -1,0 +1,272 @@
+version: '3'
+
+######## 启动本项目之前，要先启动本项目依赖的环境docker-compse-env.yml #######
+services:
+
+  #网关nginx
+  nginx:
+    image: nginx:1.21.5
+    container_name: nginx-gateway
+    restart: always
+    privileged: true
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 8888:8081
+    volumes:
+      - ./deploy/nginx/conf.d:/etc/nginx/conf.d
+      - ./data/nginx/log:/var/log/nginx
+    networks:
+      - base-net
+    depends_on:
+      - identity-api
+      - usercenter-api
+      - travel-api
+      - order-api
+      - payment-api
+
+
+  ########################################    业务   ########################################
+
+  #认证服务、颁发token
+  identity-rpc:
+    image: cosmtrek/air:latest
+    container_name: identity-rpc
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/identity/cmd/rpc
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+
+  #认证服务api
+  identity-api:
+    image: cosmtrek/air:latest
+    container_name: identity-api
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/identity/cmd/api
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+    depends_on:
+      - identity-rpc
+
+  #用户服务grpc
+  usercenter-rpc:
+    image: cosmtrek/air:latest
+    container_name: usercenter-rpc
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/usercenter/cmd/rpc
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+    depends_on:
+      - identity-rpc
+
+  #用户服务api
+  usercenter-api:
+    image: cosmtrek/air:latest
+    container_name: usercenter-api
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/usercenter/cmd/api
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+    depends_on:
+      - usercenter-rpc
+      - identity-rpc
+
+  #旅行服务rpc
+  travel-rpc:
+    image: cosmtrek/air:latest
+    container_name: travel-rpc
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/travel/cmd/rpc
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+
+  #旅行服务api
+  travel-api:
+    image: cosmtrek/air:latest
+    container_name: travel-api
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/travel/cmd/api
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+    depends_on:
+      - usercenter-rpc
+      - travel-rpc
+
+  #订单服务rpc
+  order-rpc:
+    image: cosmtrek/air:latest
+    container_name: order-rpc
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/order/cmd/rpc
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+    depends_on:
+      - travel-rpc
+      - mqueue-rpc
+
+  #订单服务api
+  order-api:
+    image: cosmtrek/air:latest
+    container_name: order-api
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/order/cmd/api
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+    depends_on:
+      - payment-rpc
+      - order-rpc
+
+  #订单服务消息队列、延迟队列
+  order-mq:
+    image: cosmtrek/air:latest
+    container_name: order-mq
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/order/cmd/mq
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+    depends_on:
+      - usercenter-rpc
+      - order-rpc
+      - mqueue-rpc
+
+  #支付服务rpc
+  payment-rpc:
+    image: cosmtrek/air:latest
+    container_name: payment-rpc
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/payment/cmd/rpc
+    volumes:
+      - .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+    depends_on:
+      - mqueue-rpc
+
+  #支付服务api
+  payment-api:
+    image: cosmtrek/air:latest
+    container_name: payment-api
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/payment/cmd/api
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+    depends_on:
+      - payment-rpc
+      - usercenter-rpc
+      - order-rpc
+
+  #内部消息队列、延迟消息队列
+  mqueue-rpc:
+    image: cosmtrek/air:latest
+    container_name: mqueue-rpc
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/mqueue/cmd/rpc
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+
+  #内部消息服务(发送手机、邮件、微信模版消息)
+  message-mq:
+    image: cosmtrek/air:latest
+    container_name: message-mq
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      GOPROXY: https://goproxy.cn,direct
+    working_dir: /go/src/github.com/looklook/app/message/cmd/mq
+    volumes:
+      -  .:/go/src/github.com/looklook
+    privileged: true
+    restart: always
+    networks:
+      - base-net
+
+
+networks:
+  base-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
