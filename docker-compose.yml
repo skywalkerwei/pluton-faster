@@ -12,7 +12,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
     ports:
-      - 8888:8081
+      - "8888:8081"
     volumes:
       - ./deploy/nginx/conf.d:/etc/nginx/conf.d
       - ./data/nginx/log:/var/log/nginx
@@ -36,9 +36,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/identity/cmd/rpc
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/identity/cmd/rpc
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -52,9 +52,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/identity/cmd/api
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/identity/cmd/api
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -70,9 +70,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/usercenter/cmd/rpc
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/usercenter/cmd/rpc
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -88,9 +88,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/usercenter/cmd/api
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/usercenter/cmd/api
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -107,9 +107,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/travel/cmd/rpc
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/travel/cmd/rpc
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -123,9 +123,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/travel/cmd/api
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/travel/cmd/api
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -142,9 +142,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/order/cmd/rpc
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/order/cmd/rpc
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -161,9 +161,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/order/cmd/api
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/order/cmd/api
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -180,9 +180,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/order/cmd/mq
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/order/cmd/mq
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -200,9 +200,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/payment/cmd/rpc
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/payment/cmd/rpc
     volumes:
-      - .:/go/src/github.com/looklook
+      - .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -218,9 +218,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/payment/cmd/api
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/payment/cmd/api
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -238,9 +238,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/mqueue/cmd/rpc
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/mqueue/cmd/rpc
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
@@ -254,9 +254,9 @@ services:
       # 时区上海
       TZ: Asia/Shanghai
       GOPROXY: https://goproxy.cn,direct
-    working_dir: /go/src/github.com/looklook/app/message/cmd/mq
+    working_dir: /go/src/github.com/skywalkerwei/pluton-faster/app/message/cmd/mq
     volumes:
-      -  .:/go/src/github.com/looklook
+      -  .:/go/src/github.com/skywalkerwei/pluton-faster
     privileged: true
     restart: always
     networks:
