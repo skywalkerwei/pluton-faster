@@ -1,0 +1,26 @@
+info(
+	title: "identity api"
+	desc: "identity api"
+	author: "kyle"
+	email: "skywalkerwei@gmail.com"
+)
+
+type (
+	VerifyTokenReq {
+	}
+	VerifyTokenResp {
+		UserId int64 `json:"userId"`
+		Ok     bool  `json:"ok"`
+	}
+)
+
+@server(
+	group: verify
+	prefix: identity
+)
+service identity {
+	
+	@doc "验证认证请求token"
+	@handler token
+	get /verify/token (VerifyTokenReq) returns (VerifyTokenResp)
+}

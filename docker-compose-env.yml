@@ -52,7 +52,7 @@ services:
       - LOG_LEVEL=debug
       - TZ=Asia/Shanghai
     ports:
-      - 16686:16686
+      - "16686:16686"
     networks:
       - base-net
     depends_on:
@@ -74,7 +74,7 @@ services:
     restart: always
     user: root
     ports:
-      - 9090:9090
+      - "9090:9090"
     networks:
       - base-net
 
@@ -106,8 +106,8 @@ services:
       - ./data/elasticsearch/data:/usr/share/elasticsearch/data
     restart: always
     ports:
-    - 9200:9200
-    - 9300:9300
+    - "9200:9200"
+    - "9300:9300"
     networks:
       - base-net
 
@@ -170,7 +170,7 @@ services:
       TZ: Asia/Shanghai
     restart: always
     ports:
-      - 2181:2181
+      - "2181:2181"
     networks:
       - base-net
 
@@ -198,7 +198,7 @@ services:
     image: hibiken/asynqmon:latest
     container_name: asynqmon
     ports:
-      - 8980:8080
+      - "8980:8080"
     command:
       - '--redis-addr=redis:6379'
       - '--redis-password=G62m50oigInC30sf'
@@ -217,7 +217,7 @@ services:
       # root 密码
       MYSQL_ROOT_PASSWORD: PXDN93VRKUm8TeE7
     ports:
-      - 33069:3306
+      - "33069:3306"
     volumes:
       # 数据挂载
       - ./data/mysql/data:/var/lib/mysql
