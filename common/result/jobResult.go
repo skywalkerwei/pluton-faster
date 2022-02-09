@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-//job返回
+//JobResult job返回
 func JobResult(ctx context.Context, resp interface{}, err error) {
 
 	if err == nil {
@@ -30,11 +30,11 @@ func JobResult(ctx context.Context, resp interface{}, err error) {
 			errCode = e.GetErrCode()
 			errMsg = e.GetErrMsg()
 		} else {
-			if gstatus, ok := status.FromError(causeErr); ok { // grpc err错误
-				grpcCode := uint32(gstatus.Code())
+			if gStatus, ok := status.FromError(causeErr); ok { // grpc err错误
+				grpcCode := uint32(gStatus.Code())
 				if xerr.IsCodeErr(grpcCode) { //区分自定义错误跟系统底层、db等错误，底层、db错误不能返回给前端
 					errCode = grpcCode
-					errMsg = gstatus.Message()
+					errMsg = gStatus.Message()
 				}
 			}
 		}

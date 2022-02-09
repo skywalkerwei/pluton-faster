@@ -3,7 +3,7 @@ package {{.PkgName}}
 import (
 	"net/http"
 
-	"looklook/common/result"
+	"github.com/skywalkerwei/pluton-faster/common/result"
 	{{.ImportPackages}}
 
 	{{if .After1_1_10}}"github.com/zeromicro/go-zero/rest/httpx"{{end}}
