@@ -43,6 +43,8 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/googleapis/gnostic v0.4.1 // indirect
 	github.com/hashicorp/golang-lru v0.5.1 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/justinas/alice v1.2.0 // indirect
@@ -82,6 +84,9 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.66.3 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	gorm.io/driver/mysql v1.2.3 // indirect
+	gorm.io/gorm v1.22.5 // indirect
+	gorm.io/plugin/dbresolver v1.1.0 // indirect
 	k8s.io/api v0.20.12 // indirect
 	k8s.io/apimachinery v0.20.12 // indirect
 	k8s.io/client-go v0.20.12 // indirect
