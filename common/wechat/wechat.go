@@ -8,17 +8,17 @@ import (
 	miniConfig "github.com/silenceper/wechat/v2/miniprogram/config"
 )
 
-func NewMini() *miniprogram.MiniProgram {
+func NewMini(conf WxMiniConf) *miniprogram.MiniProgram {
 	wc := wechat.NewWechat()
-	return wc.GetMiniProgram(wxMiniConfig())
+	return wc.GetMiniProgram(wxMiniConfig(conf))
 }
 
 //内部
-func wxMiniConfig() *miniConfig.Config {
+func wxMiniConfig(conf WxMiniConf) *miniConfig.Config {
 	memory := cache.NewMemory()
 	return &miniConfig.Config{
-		AppID:     "wx5ed344b55cb695a8",
-		AppSecret: "9a38893b9ec3c4f5578666b5b8781548",
+		AppID:     conf.AppId,
+		AppSecret: conf.Secret,
 		Cache:     memory,
 	}
 }
