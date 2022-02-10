@@ -54,7 +54,7 @@ func (l logOutPut) Printf(strFormat string, args ...interface{}) {
 	} else if strings.HasPrefix(strFormat, "[error]") || strings.HasPrefix(strFormat, "[traceErr]") {
 		logx.Error(logFlag, zap.String(detailFlag, logRes))
 	} else if strings.HasPrefix(strFormat, "[warn]") || strings.HasPrefix(strFormat, "[traceWarn]") {
-		logx.Error(logFlag, zap.String(detailFlag, logRes))
+		logx.Severe(logFlag, zap.String(detailFlag, logRes))
 	}
 
 }

@@ -2,6 +2,7 @@ package gormV2
 
 import (
 	"gorm.io/gorm"
+	"time"
 )
 
 // 这里的函数都是gorm的hook函数，拦截一些官方认为标准提示，但是我们认为不合格的操作行为，提升项目整体的完美性
@@ -21,6 +22,9 @@ func CreateBeforeHook(gormDB *gorm.DB) {
 	//	//gormDB.Statement.SetColumn("created_at", time.Now().Format(variable.DateFormat))
 	//	//gormDB.Statement.SetColumn("updated_at", time.Now().Format(variable.DateFormat))
 	//}
+	// 参数校验无错误自动设置 CreatedAt、 UpdatedAt
+	gormDB.Statement.SetColumn("created_at", time.Now().Format("2006-01-02 15:04:05"))
+	gormDB.Statement.SetColumn("updated_at", time.Now().Format("2006-01-02 15:04:05"))
 }
 
 // InterceptUpdatePramsNotPtrError 拦截 save、update 函数参数如果是非指针类型的错误
@@ -35,4 +39,5 @@ func UpdateBeforeHook(gormDB *gorm.DB) {
 	//	// 参数校验无错误自动设置 UpdatedAt
 	//	//gormDB.Statement.SetColumn("updated_at", time.Now().Format(variable.DateFormat))
 	//}
+	gormDB.Statement.SetColumn("updated_at", time.Now().Format("2006-01-02 15:04:05"))
 }

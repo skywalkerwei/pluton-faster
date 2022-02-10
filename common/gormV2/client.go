@@ -51,6 +51,7 @@ func GetSqlDriver(conf Conf) (*gorm.DB, error) {
 				SetMaxOpenConns(conf.Read.SetMaxOpenConns),
 		)
 		if err != nil {
+			//gorm 数据库驱动初始化失败
 			return nil, err
 		}
 	}
