@@ -1,4 +1,4 @@
-package gorm
+package gormV2
 
 type Conf struct {
 	SlowThreshold int

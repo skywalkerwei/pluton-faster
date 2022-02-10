@@ -6,8 +6,8 @@ Etcd:
   - 127.0.0.1:2379
   Key: sys.rpc
 
-Mysql:
-  DataSource: root:123456@tcp(127.0.0.1:3306)/api?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+#Mysql:
+#  DataSource: root:123456@tcp(127.0.0.1:3306)/api?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
 
 CacheRedis:
   - Host: 127.0.0.1:6379
@@ -18,8 +18,9 @@ Log:
   Mode: file
   Path: logs/sys
 
-Gorm:
-  SlowThreshold: 30            # 慢 SQL 阈值(sql执行时间超过此时间单位（秒），就会触发系统日志记录)
+GormConf:
+  IsOpenReadDb: false   # 是否开启读写分离配置（true=开启、false=关闭），IsOpenReadDb=开启,Read 部分参数有效，否则Read部分参数直接忽略
+  SlowThreshold: 30     # 慢 SQL 阈值(sql执行时间超过此时间单位（秒），就会触发系统日志记录)
   Write:
     Host: "127.0.0.1"
     DataBase: "api"
@@ -33,7 +34,6 @@ Gorm:
     SetConnMaxLifetime: 60     # 连接不活动时的最大生存时间(秒)
     #ReConnectInterval: 1      # 保留项,重连数据库间隔秒数
     #PingFailRetryTimes: 3     # 保留项,最大重连次数
-  IsOpenReadDb: 0              # 是否开启读写分离配置（1=开启、0=关闭），IsOpenReadDb=1,Read 部分参数有效，否则Read部分参数直接忽略
   Read:
     Host: "127.0.0.1"
     DataBase: "api"

@@ -16,6 +16,9 @@ require (
 	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce
 	google.golang.org/grpc v1.43.0
 	google.golang.org/protobuf v1.27.1
+	gorm.io/driver/mysql v1.2.3
+	gorm.io/gorm v1.22.5
+	gorm.io/plugin/dbresolver v1.1.0
 )
 
 require (
@@ -84,9 +87,7 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.66.3 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gorm.io/driver/mysql v1.2.3 // indirect
-	gorm.io/gorm v1.22.5 // indirect
-	gorm.io/plugin/dbresolver v1.1.0 // indirect
+	gorm.io/plugin/soft_delete v1.0.5 // indirect
 	k8s.io/api v0.20.12 // indirect
 	k8s.io/apimachinery v0.20.12 // indirect
 	k8s.io/client-go v0.20.12 // indirect
