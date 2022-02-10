@@ -17,6 +17,7 @@ CacheRedis:
 Log:
   Mode: file
   Path: logs/sys
+  KeepDays: 7
 
 GormConf:
   IsOpenReadDb: false   # 是否开启读写分离配置（true=开启、false=关闭），IsOpenReadDb=开启,Read 部分参数有效，否则Read部分参数直接忽略
