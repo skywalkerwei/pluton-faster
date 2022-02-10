@@ -1,4 +1,4 @@
-package config
+package wechat
 
 // WxMiniConf 微信小程序配置
 type WxMiniConf struct {

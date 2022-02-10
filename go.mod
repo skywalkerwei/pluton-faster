@@ -16,9 +16,6 @@ require (
 	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce
 	google.golang.org/grpc v1.43.0
 	google.golang.org/protobuf v1.27.1
-	gorm.io/driver/mysql v1.2.3
-	gorm.io/gorm v1.22.5
-	gorm.io/plugin/dbresolver v1.1.0
 )
 
 require (
@@ -46,8 +43,6 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/googleapis/gnostic v0.4.1 // indirect
 	github.com/hashicorp/golang-lru v0.5.1 // indirect
-	github.com/jinzhu/inflection v1.0.0 // indirect
-	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/justinas/alice v1.2.0 // indirect
@@ -87,7 +82,6 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.66.3 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gorm.io/plugin/soft_delete v1.0.5 // indirect
 	k8s.io/api v0.20.12 // indirect
 	k8s.io/apimachinery v0.20.12 // indirect
 	k8s.io/client-go v0.20.12 // indirect

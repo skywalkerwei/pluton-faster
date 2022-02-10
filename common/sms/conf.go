@@ -1,7 +1,7 @@
-package config
+package sms
 
-// SmsConf 短信
-type SmsConf struct {
+// Conf 短信
+type Conf struct {
 	AliYun struct {
 		RegionId        string
 		AccessKeyID     string

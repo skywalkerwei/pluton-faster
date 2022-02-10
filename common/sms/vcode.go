@@ -14,22 +14,13 @@ import (
 type VCode struct {
 	Template    string
 	Mobile      string
-	Config      VCodeConfig
+	Config      Conf
 	RedisClient *redis.Redis
 	AliSms      *AliSms
 }
 
-func NewVCode(Template string, Mobile string, Config VCodeConfig, RedisClient *redis.Redis, AliSms *AliSms) *VCode {
+func NewVCode(Template string, Mobile string, Config Conf, RedisClient *redis.Redis, AliSms *AliSms) *VCode {
 	return &VCode{Template, Mobile, Config, RedisClient, AliSms}
-}
-
-type VCodeConfig struct {
-	Debug         bool
-	Length        int
-	Life          int
-	MaxCheckTimes int
-	MagicCode     string
-	TestUsers     []string
 }
 
 // Send 发送

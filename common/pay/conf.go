@@ -1,7 +1,7 @@
-package config
+package pay
 
-// WxPayConf 微信支付配置
-type WxPayConf struct {
+// WxConf 微信支付配置
+type WxConf struct {
 	MchId      string `json:"MchId"`      //微信商户id
 	SerialNo   string `json:"SerialNo"`   //商户证书的证书序列号
 	APIv3Key   string `json:"APIv3Key"`   //apiV3Key，商户平台获取
