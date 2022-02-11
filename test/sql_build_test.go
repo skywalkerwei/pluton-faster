@@ -23,3 +23,41 @@ func TestDidi(t *testing.T) {
 	fmt.Println(cond, values, err)
 
 }
+
+func TestMap(t *testing.T) {
+	mp := map[string]interface{}{
+		"country": "China",
+		"role":    "driver",
+		"age >":   45,
+		"_or": []map[string]interface{}{
+			{
+				"x1":    11,
+				"x2 >=": 45,
+			},
+			{
+				"x3":    "234",
+				"x4 <>": "tx2",
+			},
+		},
+		"_groupby": "name",
+		"_having": map[string]interface{}{
+			"total >":  1000,
+			"total <=": 50000,
+		},
+		"_orderby": "age desc",
+	}
+	cond, vals, err := builder.BuildSelect("tableName", mp, []string{"name", "count(price) as total", "age"})
+	fmt.Println(cond, vals, err)
+
+	//SELECT name,count(price) as total,age FROM tableName
+	//WHERE (((x1=? AND x2>=?) OR (x3=? AND x4!=?)) AND country=? AND role=? AND age>?)
+	//GROUP BY name
+	//HAVING (total>? AND total<=?)
+	//ORDER BY age desc
+
+	//vals: []interface{}{11, 45, "234", "tx2", "China", "driver", 45, 1000, 50000}
+
+	//"_limit": []uint{a,b} => LIMIT a,b
+	//"_limit": []uint{a} => LIMIT 0,a
+
+}

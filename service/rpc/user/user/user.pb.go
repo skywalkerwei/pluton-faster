@@ -30,8 +30,8 @@ type LoginRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Mobile   string `protobuf:"bytes,1,opt,name=Mobile,proto3" json:"Mobile,omitempty"`
-	Password string `protobuf:"bytes,2,opt,name=Password,proto3" json:"Password,omitempty"`
+	Mobile   string `protobuf:"bytes,1,opt,name=Mobile,proto3" json:"Mobile"`
+	Password string `protobuf:"bytes,2,opt,name=Password,proto3" json:"Password"`
 }
 
 func (x *LoginRequest) Reset() {
@@ -85,10 +85,10 @@ type LoginResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id     int64  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
-	Name   string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Gender int64  `protobuf:"varint,3,opt,name=Gender,proto3" json:"Gender,omitempty"`
-	Mobile string `protobuf:"bytes,4,opt,name=Mobile,proto3" json:"Mobile,omitempty"`
+	Id     int64  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id"`
+	Name   string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name"`
+	Gender int64  `protobuf:"varint,3,opt,name=Gender,proto3" json:"Gender"`
+	Mobile string `protobuf:"bytes,4,opt,name=Mobile,proto3" json:"Mobile"`
 }
 
 func (x *LoginResponse) Reset() {
@@ -157,10 +157,10 @@ type RegisterRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name     string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
-	Gender   int64  `protobuf:"varint,2,opt,name=Gender,proto3" json:"Gender,omitempty"`
-	Mobile   string `protobuf:"bytes,3,opt,name=Mobile,proto3" json:"Mobile,omitempty"`
-	Password string `protobuf:"bytes,4,opt,name=Password,proto3" json:"Password,omitempty"`
+	Name     string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name"`
+	Gender   int64  `protobuf:"varint,2,opt,name=Gender,proto3" json:"Gender"`
+	Mobile   string `protobuf:"bytes,3,opt,name=Mobile,proto3" json:"Mobile"`
+	Password string `protobuf:"bytes,4,opt,name=Password,proto3" json:"Password"`
 }
 
 func (x *RegisterRequest) Reset() {
@@ -228,10 +228,10 @@ type RegisterResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id     int64  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
-	Name   string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Gender int64  `protobuf:"varint,3,opt,name=Gender,proto3" json:"Gender,omitempty"`
-	Mobile string `protobuf:"bytes,4,opt,name=Mobile,proto3" json:"Mobile,omitempty"`
+	Id     int64  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id"`
+	Name   string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name"`
+	Gender int64  `protobuf:"varint,3,opt,name=Gender,proto3" json:"Gender"`
+	Mobile string `protobuf:"bytes,4,opt,name=Mobile,proto3" json:"Mobile"`
 }
 
 func (x *RegisterResponse) Reset() {
@@ -300,7 +300,7 @@ type UserInfoRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id int64 `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=Id,proto3" json:"Id"`
 }
 
 func (x *UserInfoRequest) Reset() {
@@ -347,10 +347,10 @@ type UserInfoResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id     int64  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
-	Name   string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Gender int64  `protobuf:"varint,3,opt,name=Gender,proto3" json:"Gender,omitempty"`
-	Mobile string `protobuf:"bytes,4,opt,name=Mobile,proto3" json:"Mobile,omitempty"`
+	Id     int64  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id"`
+	Name   string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name"`
+	Gender int64  `protobuf:"varint,3,opt,name=Gender,proto3" json:"Gender"`
+	Mobile string `protobuf:"bytes,4,opt,name=Mobile,proto3" json:"Mobile"`
 }
 
 func (x *UserInfoResponse) Reset() {

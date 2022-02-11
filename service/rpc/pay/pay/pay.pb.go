@@ -26,9 +26,9 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // 支付创建
 type CreateRequest struct {
-	Uid                  int64    `protobuf:"varint,1,opt,name=Uid,proto3" json:"Uid,omitempty"`
-	Oid                  int64    `protobuf:"varint,2,opt,name=Oid,proto3" json:"Oid,omitempty"`
-	Amount               int64    `protobuf:"varint,3,opt,name=Amount,proto3" json:"Amount,omitempty"`
+	Uid                  int64    `protobuf:"varint,1,opt,name=Uid,proto3" json:"Uid"`
+	Oid                  int64    `protobuf:"varint,2,opt,name=Oid,proto3" json:"Oid"`
+	Amount               int64    `protobuf:"varint,3,opt,name=Amount,proto3" json:"Amount"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -81,7 +81,7 @@ func (m *CreateRequest) GetAmount() int64 {
 }
 
 type CreateResponse struct {
-	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -121,7 +121,7 @@ func (m *CreateResponse) GetId() int64 {
 
 // 支付详情
 type DetailRequest struct {
-	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -160,12 +160,12 @@ func (m *DetailRequest) GetId() int64 {
 }
 
 type DetailResponse struct {
-	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Uid                  int64    `protobuf:"varint,2,opt,name=Uid,proto3" json:"Uid,omitempty"`
-	Oid                  int64    `protobuf:"varint,3,opt,name=Oid,proto3" json:"Oid,omitempty"`
-	Amount               int64    `protobuf:"varint,4,opt,name=Amount,proto3" json:"Amount,omitempty"`
-	Source               int64    `protobuf:"varint,5,opt,name=Source,proto3" json:"Source,omitempty"`
-	Status               int64    `protobuf:"varint,6,opt,name=Status,proto3" json:"Status,omitempty"`
+	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
+	Uid                  int64    `protobuf:"varint,2,opt,name=Uid,proto3" json:"Uid"`
+	Oid                  int64    `protobuf:"varint,3,opt,name=Oid,proto3" json:"Oid"`
+	Amount               int64    `protobuf:"varint,4,opt,name=Amount,proto3" json:"Amount"`
+	Source               int64    `protobuf:"varint,5,opt,name=Source,proto3" json:"Source"`
+	Status               int64    `protobuf:"varint,6,opt,name=Status,proto3" json:"Status"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -240,12 +240,12 @@ func (m *DetailResponse) GetStatus() int64 {
 
 // 支付详情
 type CallbackRequest struct {
-	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Uid                  int64    `protobuf:"varint,2,opt,name=Uid,proto3" json:"Uid,omitempty"`
-	Oid                  int64    `protobuf:"varint,3,opt,name=Oid,proto3" json:"Oid,omitempty"`
-	Amount               int64    `protobuf:"varint,4,opt,name=Amount,proto3" json:"Amount,omitempty"`
-	Source               int64    `protobuf:"varint,5,opt,name=Source,proto3" json:"Source,omitempty"`
-	Status               int64    `protobuf:"varint,6,opt,name=Status,proto3" json:"Status,omitempty"`
+	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
+	Uid                  int64    `protobuf:"varint,2,opt,name=Uid,proto3" json:"Uid"`
+	Oid                  int64    `protobuf:"varint,3,opt,name=Oid,proto3" json:"Oid"`
+	Amount               int64    `protobuf:"varint,4,opt,name=Amount,proto3" json:"Amount"`
+	Source               int64    `protobuf:"varint,5,opt,name=Source,proto3" json:"Source"`
+	Status               int64    `protobuf:"varint,6,opt,name=Status,proto3" json:"Status"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

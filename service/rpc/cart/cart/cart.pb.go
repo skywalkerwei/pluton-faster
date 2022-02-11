@@ -29,11 +29,11 @@ type CartItem struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id   int64  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
-	Uid  int64  `protobuf:"varint,2,opt,name=Uid,proto3" json:"Uid,omitempty"`
-	Gid  int64  `protobuf:"varint,3,opt,name=Gid,proto3" json:"Gid,omitempty"`
-	Name string `protobuf:"bytes,4,opt,name=Name,proto3" json:"Name,omitempty"`
-	Num  int64  `protobuf:"varint,5,opt,name=Num,proto3" json:"Num,omitempty"`
+	Id   int64  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id"`
+	Uid  int64  `protobuf:"varint,2,opt,name=Uid,proto3" json:"Uid"`
+	Gid  int64  `protobuf:"varint,3,opt,name=Gid,proto3" json:"Gid"`
+	Name string `protobuf:"bytes,4,opt,name=Name,proto3" json:"Name"`
+	Num  int64  `protobuf:"varint,5,opt,name=Num,proto3" json:"Num"`
 }
 
 func (x *CartItem) Reset() {
@@ -108,7 +108,7 @@ type ListReq struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Uid int64 `protobuf:"varint,1,opt,name=Uid,proto3" json:"Uid,omitempty"`
+	Uid int64 `protobuf:"varint,1,opt,name=Uid,proto3" json:"Uid"`
 }
 
 func (x *ListReq) Reset() {
@@ -155,7 +155,7 @@ type ListResp struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	List []*CartItem `protobuf:"bytes,1,rep,name=List,proto3" json:"List,omitempty"`
+	List []*CartItem `protobuf:"bytes,1,rep,name=List,proto3" json:"List"`
 }
 
 func (x *ListResp) Reset() {
@@ -202,8 +202,8 @@ type AddReq struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	GoodsId int64 `protobuf:"varint,1,opt,name=GoodsId,proto3" json:"GoodsId,omitempty"`
-	Num     int64 `protobuf:"varint,2,opt,name=Num,proto3" json:"Num,omitempty"`
+	GoodsId int64 `protobuf:"varint,1,opt,name=GoodsId,proto3" json:"GoodsId"`
+	Num     int64 `protobuf:"varint,2,opt,name=Num,proto3" json:"Num"`
 }
 
 func (x *AddReq) Reset() {
@@ -257,7 +257,7 @@ type AddResp struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
 }
 
 func (x *AddResp) Reset() {
@@ -304,8 +304,8 @@ type EditReq struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id   int64 `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
-	Type int64 `protobuf:"varint,2,opt,name=Type,proto3" json:"Type,omitempty"`
+	Id   int64 `protobuf:"varint,1,opt,name=Id,proto3" json:"Id"`
+	Type int64 `protobuf:"varint,2,opt,name=Type,proto3" json:"Type"`
 }
 
 func (x *EditReq) Reset() {
@@ -397,7 +397,7 @@ type DelReq struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Idx string `protobuf:"bytes,1,opt,name=idx,proto3" json:"idx,omitempty"`
+	Idx string `protobuf:"bytes,1,opt,name=idx,proto3" json:"idx"`
 }
 
 func (x *DelReq) Reset() {
