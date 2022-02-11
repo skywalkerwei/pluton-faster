@@ -4,7 +4,8 @@ import (
 	"testing"
 )
 
-func TestGenSn(t *testing.T) {
+func TestT(t *testing.T) {
+
 	//t.Error("除法函数测试没通过")
 	//t.Logf("test add succ")
 	//uniqueid.GenSn("22")
